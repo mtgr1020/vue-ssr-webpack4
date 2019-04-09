@@ -17,7 +17,6 @@ const serverInfo =
 const app = express()
 
 function createRenderer (bundle, options) {
-    // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
     return createBundleRenderer(bundle, Object.assign(options, {
       cache: new LRU({
         max: 1000,

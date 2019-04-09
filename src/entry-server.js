@@ -11,7 +11,6 @@ export default context => {
         // 等到 router 将可能的异步组件和钩子函数解析完
         router.onReady(() => {
             const matchedComponents = router.getMatchedComponents()
-            console.log('entry-server.js ----- matchedComponents',matchedComponents.toString());
             if (!matchedComponents.length){
                 return reject({ code: 404 })
             }
