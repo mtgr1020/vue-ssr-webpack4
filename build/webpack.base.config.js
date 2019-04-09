@@ -49,15 +49,14 @@ module.exports = {
       },
     ]
   },
+  // 性能提示 false | "error" | "warning"
   performance: {
     hints: false
   },
   plugins: isProd
     ? [
         new VueLoaderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: { warnings: false }
-        }),
+        
         new webpack.optimize.ModuleConcatenationPlugin(),
         new ExtractTextPlugin({
           filename: 'common.[chunkhash].css'
