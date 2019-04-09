@@ -51,7 +51,7 @@ module.exports = {
   },
   // 性能提示 false | "error" | "warning"
   performance: {
-    hints: false
+    hints: 'warning'
   },
   plugins: isProd
     ? [
