@@ -36,7 +36,6 @@ module.exports = function setupDevServer (app, templatePath, cb) {
     console.log('index.html template updated.')
     update()
   })
-
   // modify client config to work with hot middleware
   clientConfig.entry.app = ['webpack-hot-middleware/client', clientConfig.entry.app]
   clientConfig.output.filename = '[name].js'

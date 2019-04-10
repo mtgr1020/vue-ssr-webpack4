@@ -16,9 +16,6 @@ module.exports = {
     publicPath: '/dist/',
     filename: '[name].[chunkhash].js'
   },
-  devServer: {
-    hot: !isProd
-  },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
