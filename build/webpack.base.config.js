@@ -16,6 +16,9 @@ module.exports = {
     publicPath: '/dist/',
     filename: '[name].[chunkhash].js'
   },
+  devServer: {
+    hot: !isProd
+  },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
@@ -47,11 +50,23 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       },
+      {
+        test: /\.(sass|scss)$/,
+        use: isProd
+          ? ExtractTextPlugin.extract({
+            use: [
+              'css-loader',
+              'sass-loader'
+            ],
+            fallback: 'vue-style-loader'
+          })
+          : ['vue-style-loader', 'css-loader', 'sass-loader']
+      }
     ]
   },
   // 性能提示 false | "error" | "warning"
   performance: {
-    hints: 'warning'
+    hints: false
   },
   plugins: isProd
     ? [
@@ -64,6 +79,6 @@ module.exports = {
       ]
     : [
         new VueLoaderPlugin(),
-        new FriendlyErrorsPlugin()
+        new FriendlyErrorsPlugin(),
       ]
 }

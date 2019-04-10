@@ -1,6 +1,8 @@
 <template>
     <div>
-        Home
+        <header>
+            API来自QQ音乐
+        </header>
     </div>
 </template>
 
@@ -17,4 +19,11 @@ export default {
     }
 }
 </script>
+
+<style lang="sass" scoped>
+  header{
+      padding: 10px 60px;
+  }
+</style>
+
 
