@@ -5,7 +5,7 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 module.exports = merge(baseConfig, {
     entry: {
-        app:'./src/entry-client.js'
+        app: './src/entry-client.js'
     },
     //Since webpack v4, the CommonsChunkPlugin was removed in favor of optimization.splitChunks
     optimization: {

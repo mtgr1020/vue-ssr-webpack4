@@ -19,7 +19,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      "@": path.resolve(__dirname, '../src')
+      "@": path.resolve(__dirname, '../src'),
+      "@node_modules": path.resolve(__dirname, '../node_modules')
     }
   },
   module: {
@@ -48,7 +49,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(sass|scss)$/,
+        test: /\.(sass|scss|css)$/,
         use: isProd
           ? ExtractTextPlugin.extract({
             use: [
@@ -58,6 +59,13 @@ module.exports = {
             fallback: 'vue-style-loader'
           })
           : ['vue-style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+        }
       }
     ]
   },
